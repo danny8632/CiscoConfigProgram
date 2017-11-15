@@ -9,12 +9,16 @@ namespace ConnectCisco
 {
     class Program
     {
-        TelnetConnection T = new TelnetConnection("192.168.1.1", 23);
         static void Main(string[] args)
         {
+            TelnetConnection T = new TelnetConnection("192.168.1.1", 23);
             T.CiscoLogin("Password1");
             T.CiscoEnable("Password1");
-            T.CiscoCommand("banner motd #Lol#");
+            T.CiscoCommand("conf t");
+            T.CiscoCommand("banner motd #Lolllllll#");
+            T.CiscoCommand("exit");
+            T.CiscoCommand("copy running-config startup-config");
+            T.CiscoCommand("{ENTER}");
         }
     }
 }
