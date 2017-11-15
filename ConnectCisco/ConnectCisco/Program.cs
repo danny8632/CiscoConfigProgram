@@ -15,10 +15,10 @@ namespace ConnectCisco
             T.CiscoLogin("Password1");
             T.CiscoEnable("Password1");
             T.CiscoCommand("conf t");
-            T.CiscoCommand("banner motd #Lolllllll#");
+            //T.CiscoCommand("banner motd #Lolllllll#");
+            T.CiscoCommand("hostname gulerod");
             T.CiscoCommand("exit");
-            T.CiscoCommand("copy running-config startup-config");
-            T.CiscoCommand("{ENTER}");
+            T.CiscoCommand("write");
         }
     }
 }
