@@ -9,23 +9,12 @@ namespace ConnectCisco
 {
     class Program
     {
+        TelnetConnection T = new TelnetConnection("192.168.1.1", 23);
         static void Main(string[] args)
         {
-            SerialPort stream = new SerialPort();
-
-            stream.PortName = "COM3";
-            stream.BaudRate = 9600;
-            stream.DataBits = 8;
-            stream.Parity = Parity.None;
-            stream.StopBits = StopBits.One;
-
-            stream.Open();
-            stream.WriteLine("enable");
-            stream.WriteLine("conf t");
-            stream.WriteLine("banner motd #Welcome Authorized Users Unauthorized access prohibited!# ");
-            stream.Close();
-
-            Console.ReadKey();
+            T.CiscoLogin("Password1");
+            T.CiscoEnable("Password1");
+            T.CiscoCommand("banner motd #Lol#");
         }
     }
 }
