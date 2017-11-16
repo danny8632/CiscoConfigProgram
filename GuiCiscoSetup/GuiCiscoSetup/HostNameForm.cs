@@ -32,7 +32,7 @@ namespace GuiCiscoSetup
                 T.CiscoEnable(LoginClass.pass2);
                 T.CiscoCommand("conf t");
                 CommandInput.hostNameBool = true;
-                T.CiscoCommand("hostname " + hostname);
+                T.CiscoCommand("banner motd " + hostname);
                 T.CiscoCommand("exit");
                 T.CiscoCommand("write");
                 MessageBox.Show(hostname);
