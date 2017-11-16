@@ -1,4 +1,4 @@
-﻿using System;
+﻿/*using System;
 using System.Collections.Generic;
 using System.IO.Ports;
 using System.Linq;
@@ -16,9 +16,10 @@ namespace ConnectCisco
             T.CiscoEnable("Password1");
             T.CiscoCommand("conf t");
             //T.CiscoCommand("banner motd #Lolllllll#");
-            T.CiscoCommand("hostname gulerod");
+            T.CiscoCommand("hostname snemand");
             T.CiscoCommand("exit");
             T.CiscoCommand("write");
         }
     }
 }
+*/
