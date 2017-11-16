@@ -21,7 +21,7 @@ namespace GuiCiscoSetup
 
         private void button1_Click(object sender, EventArgs e)
         {
-            CommandInput.hostname = HostNameInputBox.Text;
+            string hostname = HostNameInputBox.Text;
 
             if(CommandInput.hostname == "")
             {
@@ -32,10 +32,10 @@ namespace GuiCiscoSetup
                 T.CiscoEnable(LoginClass.pass2);
                 T.CiscoCommand("conf t");
                 CommandInput.hostNameBool = true;
-                T.CiscoCommand("hostname " + CommandInput.hostname);
+                T.CiscoCommand("hostname " + hostname);
                 T.CiscoCommand("exit");
                 T.CiscoCommand("write");
-                MessageBox.Show(CommandInput.hostname);
+                MessageBox.Show(hostname);
                 CommandInput.hostNameBool = false;
                 Hide();
             }
