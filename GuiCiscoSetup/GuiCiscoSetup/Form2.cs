@@ -25,27 +25,11 @@ namespace GuiCiscoSetup
         public void button1_Click(object sender, EventArgs e)
         {
             //LoginClass login = new LoginClass();
-            
 
-            T.CiscoLogin(LoginClass.pass1);
-            T.CiscoEnable(LoginClass.pass2);
-            T.CiscoCommand("conf t");
+
             HostNameForm fo = new HostNameForm();
             fo.Show();
-            CommandInput.hostNameBool = true;
 
-            while (CommandInput.hostNameBool)
-            {
-                if(CommandInput.hostnameint == 1)
-                {
-                    T.CiscoCommand("hostname " + CommandInput.hostname);
-                    T.CiscoCommand("exit");
-                    T.CiscoCommand("write");
-                    MessageBox.Show(CommandInput.hostname);
-                    CommandInput.hostNameBool = false;
-                }
-            }
-            
 
 
         }

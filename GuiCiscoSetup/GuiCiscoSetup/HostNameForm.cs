@@ -12,6 +12,7 @@ namespace GuiCiscoSetup
 {
     public partial class HostNameForm : Form
     {
+        TelnetConnection T = new TelnetConnection(LoginClass.ip, LoginClass.port);
         Form2 f = new Form2();
         public HostNameForm()
         {
@@ -27,7 +28,15 @@ namespace GuiCiscoSetup
                 MessageBox.Show("Intet hostname indtastet");
             }else
             {
-                CommandInput.hostnameint = 1;
+                T.CiscoLogin(LoginClass.pass1);
+                T.CiscoEnable(LoginClass.pass2);
+                T.CiscoCommand("conf t");
+                CommandInput.hostNameBool = true;
+                T.CiscoCommand("hostname " + CommandInput.hostname);
+                T.CiscoCommand("exit");
+                T.CiscoCommand("write");
+                MessageBox.Show(CommandInput.hostname);
+                CommandInput.hostNameBool = false;
                 Hide();
             }
             
