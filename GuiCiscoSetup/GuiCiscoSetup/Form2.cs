@@ -36,7 +36,7 @@ namespace GuiCiscoSetup
 
             while (CommandInput.hostNameBool)
             {
-                if(CommandInput.hostname != "")
+                if(CommandInput.hostname == "")
                 {
                     T.CiscoCommand("hostname " + CommandInput.hostname);
                     T.CiscoCommand("exit");
