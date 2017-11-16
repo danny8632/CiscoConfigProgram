@@ -32,21 +32,26 @@ namespace GuiCiscoSetup
             T.CiscoCommand("conf t");
             HostNameForm fo = new HostNameForm();
             fo.Show();
+            CommandInput.hostNameBool = true;
 
+            while (CommandInput.hostNameBool)
+            {
+                if(CommandInput.hostname != "")
+                {
+                    T.CiscoCommand("hostname " + CommandInput.hostname);
+                    T.CiscoCommand("exit");
+                    T.CiscoCommand("write");
+                    MessageBox.Show(CommandInput.hostname);
+                }
+            }
             
 
 
-        }
-        public void ChangeHostname(string name)
-        {
-            T.CiscoCommand("hostname " + name);
-            T.CiscoCommand("exit");
-            T.CiscoCommand("write");
-            MessageBox.Show(CommandInput.hostname);
         }
     }
     public static class CommandInput
     {
         public static string hostname;
+        public static bool hostNameBool;
     }
 }

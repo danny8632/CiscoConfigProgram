@@ -27,7 +27,7 @@ namespace GuiCiscoSetup
                 MessageBox.Show("Intet hostname indtastet");
             }else
             {
-                f.ChangeHostname(hostname);
+                //f.ChangeHostname(hostname);
                 Hide();
             }
 
