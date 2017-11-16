@@ -27,16 +27,22 @@ namespace GuiCiscoSetup
             //LoginClass login = new LoginClass();
             TelnetConnection T = new TelnetConnection(LoginClass.ip, LoginClass.port);
 
-            MessageBox.Show(LoginClass.ip);
-
             T.CiscoLogin(LoginClass.pass1);
             T.CiscoEnable(LoginClass.pass2);
             T.CiscoCommand("conf t");
-            T.CiscoCommand("hostname julemand");
+
+            HostNameForm fo = new HostNameForm();
+            fo.Show();
+
+            T.CiscoCommand("hostname " + CommandInput.hostname);
             T.CiscoCommand("exit");
             T.CiscoCommand("write");
 
 
         }
+    }
+    public static class CommandInput
+    {
+        public static string hostname;
     }
 }
