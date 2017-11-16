@@ -34,9 +34,19 @@ namespace GuiCiscoSetup
             HostNameForm fo = new HostNameForm();
             fo.Show();
 
-            T.CiscoCommand("hostname " + CommandInput.hostname);
-            T.CiscoCommand("exit");
-            T.CiscoCommand("write");
+            while(true)
+            {
+                if (!(CommandInput.hostname == ""))
+                {
+                    T.CiscoCommand("hostname " + CommandInput.hostname);
+                    T.CiscoCommand("exit");
+                    T.CiscoCommand("write");
+                    break;
+                } 
+            }
+
+            
+            
 
 
         }
