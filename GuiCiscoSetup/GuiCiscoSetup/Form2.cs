@@ -30,25 +30,19 @@ namespace GuiCiscoSetup
             T.CiscoLogin(LoginClass.pass1);
             T.CiscoEnable(LoginClass.pass2);
             T.CiscoCommand("conf t");
-
             HostNameForm fo = new HostNameForm();
             fo.Show();
-
-            while(true)
-            {
-                if (!(CommandInput.hostname == ""))
-                {
-                    T.CiscoCommand("hostname " + CommandInput.hostname);
-                    T.CiscoCommand("exit");
-                    T.CiscoCommand("write");
-                    break;
-                } 
-            }
-
-            MessageBox.Show(CommandInput.hostname);
             
 
 
+        }
+        public static void ChangeHostname()
+        {
+            TelnetConnection T = new TelnetConnection(LoginClass.ip, LoginClass.port);
+            T.CiscoCommand("hostname " + CommandInput.hostname);
+            T.CiscoCommand("exit");
+            T.CiscoCommand("write");
+            MessageBox.Show(CommandInput.hostname);
         }
     }
     public static class CommandInput
