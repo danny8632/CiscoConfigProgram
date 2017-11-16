@@ -36,12 +36,13 @@ namespace GuiCiscoSetup
 
             while (CommandInput.hostNameBool)
             {
-                if(CommandInput.hostname == "")
+                if(CommandInput.hostnameint == 1)
                 {
                     T.CiscoCommand("hostname " + CommandInput.hostname);
                     T.CiscoCommand("exit");
                     T.CiscoCommand("write");
                     MessageBox.Show(CommandInput.hostname);
+                    CommandInput.hostNameBool = false;
                 }
             }
             
@@ -52,6 +53,7 @@ namespace GuiCiscoSetup
     public static class CommandInput
     {
         public static string hostname;
+        public static int hostnameint;
         public static bool hostNameBool;
     }
 }
