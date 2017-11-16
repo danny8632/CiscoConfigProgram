@@ -12,7 +12,7 @@ namespace GuiCiscoSetup
 {
     public partial class Form2 : Form
     {
-        
+        TelnetConnection T = new TelnetConnection(LoginClass.ip, LoginClass.port);
         public Form2()
         {
             InitializeComponent();
@@ -25,21 +25,21 @@ namespace GuiCiscoSetup
         public void button1_Click(object sender, EventArgs e)
         {
             //LoginClass login = new LoginClass();
-            TelnetConnection T = new TelnetConnection(LoginClass.ip, LoginClass.port);
+            
 
             T.CiscoLogin(LoginClass.pass1);
             T.CiscoEnable(LoginClass.pass2);
             T.CiscoCommand("conf t");
             HostNameForm fo = new HostNameForm();
             fo.Show();
+
             
 
 
         }
-        public static void ChangeHostname()
+        public void ChangeHostname(string name)
         {
-            TelnetConnection T = new TelnetConnection(LoginClass.ip, LoginClass.port);
-            T.CiscoCommand("hostname " + CommandInput.hostname);
+            T.CiscoCommand("hostname " + name);
             T.CiscoCommand("exit");
             T.CiscoCommand("write");
             MessageBox.Show(CommandInput.hostname);

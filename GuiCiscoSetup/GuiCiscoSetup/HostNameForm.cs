@@ -12,6 +12,7 @@ namespace GuiCiscoSetup
 {
     public partial class HostNameForm : Form
     {
+        Form2 f = new Form2();
         public HostNameForm()
         {
             InitializeComponent();
@@ -19,15 +20,19 @@ namespace GuiCiscoSetup
 
         private void button1_Click(object sender, EventArgs e)
         {
-            CommandInput.hostname = HostNameInputBox.Text;
+            string hostname = HostNameInputBox.Text;
 
             if(CommandInput.hostname == "")
             {
                 MessageBox.Show("Intet hostname indtastet");
+            }else
+            {
+                f.ChangeHostname(hostname);
+                Hide();
             }
 
-            Form2.ChangeHostname();
-            Hide();
+            //Form2.ChangeHostname();
+            
         }
     }
 }
