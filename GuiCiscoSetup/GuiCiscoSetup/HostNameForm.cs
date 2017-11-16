@@ -21,7 +21,7 @@ namespace GuiCiscoSetup
 
         private void button1_Click(object sender, EventArgs e)
         {
-            string hostname = HostNameInputBox.Text;
+            CommandInput.hostname = HostNameInputBox.Text;
 
             if(CommandInput.hostname == "")
             {
