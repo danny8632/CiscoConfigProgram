@@ -11,18 +11,19 @@ namespace ConnectCisco
     {
         static void Main(string[] args)
         {
-            Int64 x;
 
+            string fileName = "test1.txt";
+            string ipAddres = "192.168.1.1";
             try
             {
                 //Open the File
-                StreamWriter sw = new StreamWriter("C:\\Users\\felix\\Desktop\\skole stuff\\Programering\\Github\\Cisco config\\ConnectCisco\\ConnectCisco\\test1.txt", false, Encoding.ASCII);
+                StreamWriter sw = new StreamWriter("C:\\Users\\felix\\Desktop\\skole stuff\\Programering\\Github\\Cisco config\\ConnectCisco\\ConnectCisco\\"+fileName, false, Encoding.ASCII);
 
                 TelnetConnection T1;
                 List<String> Result = new List<String>();
-                int lineCounter = 1;
+                int lineCounter = 3;
 
-                T1 = new TelnetConnection("192.168.1.1", 23);
+                T1 = new TelnetConnection(ipAddres, 23);
 
                 T1.CiscoLogin("Password1");
                 T1.CiscoEnable("Password1");
