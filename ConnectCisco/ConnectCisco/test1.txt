@@ -1,0 +1,107 @@
+3: Show running
+4: Building configuration...
+5: 
+6: Current configuration : 1203 bytes
+7: !
+8: ! Last configuration change at 14:33:40 UTC Thu Nov 16 2017
+9: version 15.1
+10: service timestamps debug datetime msec
+11: service timestamps log datetime msec
+12: no service password-encryption
+13: !
+14: hostname gemme
+15: !
+16: boot-start-marker
+17: boot-end-marker
+18: !
+19: !
+20: enable secret 5 $1$.VW1$BG1GcpTVd5uN1TBtH4A92/
+21: !
+22: no aaa new-model
+23: !
+24: dot11 syslog
+25: ip source-route
+26: !
+27: !
+28: !
+29: !
+30: !
+31: ip cef
+32: no ipv6 cef
+33: !
+34: multilink bundle-name authenticated
+35: !
+36: crypto pki token default removal timeout 0
+37: !
+38: !
+39: !
+40: !
+41: license udi pid CISCO1841 sn FCZ1509C4PH
+42: !
+43: redundancy
+44: !
+45: !
+46: ! 
+47: !
+48: !
+49: !
+50: !
+51: !
+52: !
+53: interface FastEthernet0/0
+54:  ip address 192.168.1.1 255.255.255.0
+55:  duplex auto
+56:  speed auto
+57: !
+58: interface FastEthernet0/1
+59:  no ip address
+60:  shutdown
+61:  duplex auto
+62:  speed auto
+63: !
+64: interface FastEthernet0/1/0
+65:  no ip address
+66:  shutdown
+67:  duplex auto
+68:  speed auto
+69: !
+70: interface FastEthernet0/1/1
+71:  no ip address
+72:  shutdown
+73:  duplex auto
+74:  speed auto
+75: !
+76: ip default-gateway 192.168.1.1
+77: ip forward-protocol nd
+78: no ip http server
+79: no ip http secure-server
+80: !
+81: !
+82: !
+83: !
+84: !
+85: !
+86: !
+87: !
+88: !
+89: control-plane
+90: !
+91: !
+92: !
+93: line con 0
+94:  password Password1
+95:  login
+96: line aux 0
+97: line vty 0 4
+98:  password Password1
+99:  login
+100:  transport input all
+101: line vty 5 807
+102:  password Password1
+103:  login
+104:  transport input all
+105: !
+106: scheduler allocate 20000 1000
+107: end
+108: 
+109: gemme#
